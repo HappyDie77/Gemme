@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://uvf3m6m4rn6y"]
+
+[ext_resource type="Texture2D" uid="uid://b1cgoiob6fo3e" path="res://icon.svg" id="1_7hsxw"]
+[ext_resource type="Script" path="res://bow_1.gd" id="1_h07xk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h07xk")
+
+[node name="bow" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.296875)
+texture = ExtResource("1_7hsxw")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
