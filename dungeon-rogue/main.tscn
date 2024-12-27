@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5a0yllv2jlfd"]
+[gd_scene load_steps=4 format=3 uid="uid://c5a0yllv2jlfd"]
 
 [ext_resource type="PackedScene" uid="uid://dbsv47i7p5va6" path="res://player.tscn" id="1_ffgq3"]
-[ext_resource type="Texture2D" uid="uid://b1cgoiob6fo3e" path="res://icon.svg" id="2_175iu"]
-[ext_resource type="PackedScene" uid="uid://uvf3m6m4rn6y" path="res://bow1.tscn" id="3_wywqv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1rlv"]
-size = Vector2(103, 115)
+[ext_resource type="PackedScene" uid="uid://irmr0ufltxwc" path="res://bow1_pickup.tscn" id="2_k42n8"]
+[ext_resource type="PackedScene" uid="uid://ygw4fskbmk2x" path="res://map.tscn" id="3_nx210"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_ffgq3")]
-position = Vector2(377, 287)
+[node name="player" parent="." instance=ExtResource("1_ffgq3")]
+position = Vector2(-1, 4)
 
-[node name="Node2D" parent="CharacterBody2D" instance=ExtResource("3_wywqv")]
-position = Vector2(0, -100)
+[node name="Camera2D" type="Camera2D" parent="player"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" parent="." instance=ExtResource("2_k42n8")]
+position = Vector2(-139, 26)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("2_175iu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.5, 1.5)
-shape = SubResource("RectangleShape2D_u1rlv")
+[node name="map" parent="." instance=ExtResource("3_nx210")]
