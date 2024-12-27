@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2k6ioh33er3t"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_yaibg"]
-[ext_resource type="Texture2D" uid="uid://b1cgoiob6fo3e" path="res://icon.svg" id="2_ct14c"]
+[ext_resource type="Texture2D" uid="uid://d1d6k6uq4mgjg" path="res://New Piskel-1.png (3).png" id="2_foljt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k248i"]
 height = 106.0
 
 [node name="bullet" type="Area2D"]
+scale = Vector2(0.27, 0.27)
 script = ExtResource("1_yaibg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -14,9 +15,9 @@ position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_k248i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -13.5)
-scale = Vector2(0.125, 0.742188)
-texture = ExtResource("2_ct14c")
+position = Vector2(5, -12)
+scale = Vector2(5, 5)
+texture = ExtResource("2_foljt")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(0, 20)
