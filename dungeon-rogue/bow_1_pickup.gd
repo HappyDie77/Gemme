@@ -7,5 +7,5 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	var bow1_temp = bow1.instantiate()
 	body.add_child(bow1_temp)
-	bow1_temp.position = Vector2(0, -50)
+	bow1_temp.position = Vector2(0, 0)
 	queue_free()

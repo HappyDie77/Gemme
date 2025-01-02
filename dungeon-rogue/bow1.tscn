@@ -1,14 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://uvf3m6m4rn6y"]
 
 [ext_resource type="Script" path="res://bow_1.gd" id="1_h07xk"]
-[ext_resource type="Texture2D" uid="uid://chnl2unj4274e" path="res://New Piskel-1.png (2).png" id="2_w8uhf"]
+[ext_resource type="Texture2D" uid="uid://c2i6c6gtt5aje" path="res://New Piskel-1.png (4).png" id="2_tlqgf"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_h07xk")
 
 [node name="bow" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("2_w8uhf")
+texture_filter = 1
+rotation = 3.14159
+scale = Vector2(5.125, 5.125)
+texture = ExtResource("2_tlqgf")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

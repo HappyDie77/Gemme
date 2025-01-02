@@ -8,8 +8,9 @@ var shooting = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("->"):
-		position.y=-0
-		position.x=50
+		$bow.z_index=2
+		position.y=10
+		position.x=25
 		rotation = deg_to_rad(90)
 		if not shooting:
 			
@@ -24,8 +25,9 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_pressed("<-"):
-		position.y=-0
-		position.x=-50
+		$bow.z_index=2
+		position.y=10
+		position.x=-25
 		rotation = deg_to_rad(270)
 		if not shooting:
 			shooting=true
@@ -36,8 +38,9 @@ func _physics_process(delta: float) -> void:
 			shooting=false
 
 	if Input.is_action_pressed("down"):
-		position.x=-0
-		position.y=50
+		$bow.z_index=2
+		position.x=0
+		position.y=20
 		rotation = deg_to_rad(180)
 		if not shooting:
 			shooting=true
@@ -48,8 +51,9 @@ func _physics_process(delta: float) -> void:
 			shooting=false
 
 	if Input.is_action_pressed("up"):
+		$bow.z_index=0
 		position.x=-0
-		position.y=-50
+		position.y=0
 		rotation = deg_to_rad(360)
 		if not shooting:
 			shooting=true
@@ -58,6 +62,8 @@ func _physics_process(delta: float) -> void:
 			$Timer.start()
 			await $Timer.timeout
 			shooting=false
+			
+		
 
 		
 
