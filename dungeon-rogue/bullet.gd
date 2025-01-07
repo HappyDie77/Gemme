@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 500
+var speed = 50
 var direction = Vector2.RIGHT  # Default direction is right
 
 func _process(delta: float) -> void:
