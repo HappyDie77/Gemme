@@ -10,7 +10,7 @@
 [node name="player" parent="." instance=ExtResource("1_ffgq3")]
 position = Vector2(-1, 4)
 
-[node name="Area2D" parent="." instance=ExtResource("2_k42n8")]
+[node name="bow1 spawner" parent="." instance=ExtResource("2_k42n8")]
 position = Vector2(-139, 26)
 
 [node name="map" parent="." instance=ExtResource("3_nx210")]
@@ -20,4 +20,4 @@ position = Vector2(214, 134)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 4)
-scale = Vector2(0.5, 0.5)
+zoom = Vector2(2.5, 2.5)

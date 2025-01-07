@@ -1,69 +1,53 @@
-extends Area2D
-
-
-
-@onready var bullet = preload("res://bullet.tscn")
+extends Node2D
 
 var shooting = false
+@onready var sword: Node2D = $sword1
 
+
+
+# Direction mapping for input actions
+const DIRECTIONS = {
+	"<-": Vector2(-1, 0),
+	"->": Vector2(1, 0),
+	"up": Vector2(0, 1),
+	"down": Vector2(0, 1)
+}
+const ROTATIONS = {
+	"<-": 270,
+	"->": 90,
+	"up": 0,
+	"down": 180
+}
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("->"):
-		position.y=-0
-		position.x=100
-		rotation = deg_to_rad(90)
-		if not shooting:
-			
-			shooting=true
-			
+	var active_action = get_highest_priority_action()
+	if active_action != "":
+		handle_shooting(active_action, DIRECTIONS[active_action], ROTATIONS[active_action])
 
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
-			
+func get_highest_priority_action() -> String:
+	# Define priority order: left > right > up > down
+	var priority = ["<-", "->", "up", "down"]
+	for action in priority:
+		if Input.is_action_pressed(action):
+			return action
+	return ""
+
+func handle_shooting(action: String, direction: Vector2, rotation_deg: float) -> void:
+	sword.z_index = 2 if action in ["<-", "down","->"] else 0
+	
+	rotation = deg_to_rad(rotation_deg)
+	
+	
+	if not shooting:
+		shooting = true
+
+		$sword1/AnimationPlayer.play("swing")
 		
-
-
-	if Input.is_action_pressed("<-"):
-		position.y=-0
-		position.x=-100
-		rotation = deg_to_rad(270)
-		if not shooting:
-			shooting=true
-			$AnimationPlayer.play("swing")
-			
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
-
-	if Input.is_action_pressed("down"):
-		position.x=-0
-		position.y=100
-		rotation = deg_to_rad(180)
-		if not shooting:
-			shooting=true
-
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
-
-	if Input.is_action_pressed("up"):
-		position.x=-0
-		position.y=-100
-		rotation = deg_to_rad(360)
-		if not shooting:
-			shooting=true
-			play_time()
-			
-			$Timer.start()
-			await $Timer.timeout
-
-			
-			shooting=false
-
+		$sword1/Timer.start()
+		await $sword1/Timer.timeout
+		$sword1/AnimationPlayer.play("RESET")
 		
-func play_time():
-	$anitimer.start()
-	$AnimationPlayer.play("swing")
-	await $anitimer.timeout
-	$AnimationPlayer.play("reset")
+		
+		$sword1/Timer.start()
+		await $sword1/Timer.timeout
+		shooting = false

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c27dghbswawjp" path="res://New Piskel (3).png" id="2_lrrqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbed1"]
-size = Vector2(128, 120)
+size = Vector2(40, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2x37"]
 atlas = ExtResource("2_lrrqm")
@@ -58,10 +58,10 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5ps0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -10)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_sbed1")
 
@@ -69,5 +69,4 @@ shape = SubResource("RectangleShape2D_sbed1")
 z_index = 1
 texture_filter = 1
 position = Vector2(3.8147e-06, -8)
-scale = Vector2(5.125, 5.125)
 sprite_frames = SubResource("SpriteFrames_dtfsv")

@@ -1,84 +1,66 @@
 extends Node2D
 
-
 @onready var bullet = preload("res://bullet.tscn")
 @onready var bow = $bow
 var shooting = false
 
+# Direction mapping for input actions
+const DIRECTIONS = {
+	"<-": Vector2(-1, 0),
+	"->": Vector2(1, 0),
+	"up": Vector2(0, -1),
+	"down": Vector2(0, 1)
+}
+const ROTATIONS = {
+	"<-": 270,
+	"->": 90,
+	"up": 0,
+	"down": 180
+}
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("->"):
-		$bow.z_index=2
-		position.y=10
-		position.x=25
-		rotation = deg_to_rad(90)
-		if not shooting:
-			
-			shooting=true
-			
-			shoot_bullet(Vector2(1, 0))  # Shoot right
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
-			
-		
+	var active_action = get_highest_priority_action()
+	if active_action != "":
+		handle_shooting(active_action, DIRECTIONS[active_action], ROTATIONS[active_action])
 
+func get_highest_priority_action() -> String:
+	# Define priority order: left > right > up > down
+	var priority = ["<-", "->", "up", "down"]
+	for action in priority:
+		if Input.is_action_pressed(action):
+			return action
+	return ""
 
-	if Input.is_action_pressed("<-"):
-		$bow.z_index=2
-		position.y=10
-		position.x=-25
-		rotation = deg_to_rad(270)
-		if not shooting:
-			shooting=true
-			
-			shoot_bullet(Vector2(-1, 0))  # Shoot left
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
+func handle_shooting(action: String, direction: Vector2, rotation_deg: float) -> void:
+	bow.z_index = 2 if action in [ "down","->","<-"] else 0
+	position = get_bow_position_adjustment(action)
+	rotation = deg_to_rad(rotation_deg)
+	
+	if not shooting:
+		shooting = true
+		shoot_bullet(direction, rotation_deg)
+		$Timer.start()
+		await $Timer.timeout
+		shooting = false
 
-	if Input.is_action_pressed("down"):
-		$bow.z_index=2
-		position.x=0
-		position.y=20
-		rotation = deg_to_rad(180)
-		if not shooting:
-			shooting=true
-			
-			shoot_bullet(Vector2(0, 1))  # Shoot down
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
+func get_bow_position_adjustment(action: String) -> Vector2:
+	if action == "<-":
+		return Vector2(-6, -8)
+	elif action == "->":
+		return Vector2(6, -8)
+	elif action == "up":
+		return Vector2(0, -5)
+	elif action == "down":
+		return Vector2(0, 0)
+	return Vector2.ZERO
 
-	if Input.is_action_pressed("up"):
-		$bow.z_index=0
-		position.x=-0
-		position.y=0
-		rotation = deg_to_rad(360)
-		if not shooting:
-			shooting=true
-			
-			shoot_bullet(Vector2(0, -1))  # Shoot up
-			$Timer.start()
-			await $Timer.timeout
-			shooting=false
-			
-		
-
-		
-
-func shoot_bullet(direction: Vector2) -> void:
+func shoot_bullet(direction: Vector2, rotation_deg: float) -> void:
 	var bullet_temp = bullet.instantiate()
-	get_parent().get_parent().add_child(bullet_temp)  # Add the bullet to the parent's scene, not as a child of the player
-	bullet_temp.position = global_position  # Use global position to ensure it's aligned with world space
+	get_parent().get_parent().add_child(bullet_temp)
+	bullet_temp.position = global_position
 	if bullet_temp.has_method("set_direction"):
-		bullet_temp.set_direction(direction)  # Call a custom method in bullet if it exists
+		bullet_temp.set_direction(direction)
 	elif bullet_temp.has_variable("direction"):
-		bullet_temp.direction = direction  # Or directly set the variable if it exists
-	if Input.is_action_pressed("->"):
-		bullet_temp.rotation = deg_to_rad(90)
-		bullet_temp.direction = direction  
-	if Input.is_action_pressed("down"):
-		bullet_temp.rotation = deg_to_rad(180)
-	if Input.is_action_pressed("<-"):
-		bullet_temp.rotation = deg_to_rad(270)
+		bullet_temp.direction = direction
+	
+	bullet_temp.rotation = deg_to_rad(rotation_deg)

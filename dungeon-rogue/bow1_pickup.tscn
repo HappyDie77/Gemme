@@ -4,19 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://c2i6c6gtt5aje" path="res://New Piskel-1.png (4).png" id="2_3xk4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1rlv"]
-size = Vector2(100.75, 72.5)
+size = Vector2(18, 10)
 
 [node name="Area2D" type="Area2D"]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_calok")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5.125, 5.125)
 texture = ExtResource("2_3xk4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 2)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_u1rlv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
