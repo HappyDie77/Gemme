@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var player = preload("res://player.tscn")
-@onready var bow1 = preload("res://bow1.tscn")
+@onready var player = preload("res://Scenes/player.tscn")
+@onready var bow1 = preload("res://Scenes/bow1.tscn")
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ygw4fskbmk2x"]
 
-[ext_resource type="Texture2D" uid="uid://b0vteeutilfbt" path="res://New Piskel (2).png" id="1_ebvbw"]
-[ext_resource type="Script" path="res://map.gd" id="1_wwbgy"]
-[ext_resource type="Texture2D" uid="uid://d11qc4sgmn36e" path="res://New Piskel (6).png" id="2_4uqso"]
+[ext_resource type="Texture2D" uid="uid://b0vteeutilfbt" path="res://Assets/New Piskel (2).png" id="1_ebvbw"]
+[ext_resource type="Script" path="res://Scripts/map.gd" id="1_wwbgy"]
+[ext_resource type="Texture2D" uid="uid://d11qc4sgmn36e" path="res://Assets/New Piskel (6).png" id="2_4uqso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abg23"]
 texture = ExtResource("2_4uqso")

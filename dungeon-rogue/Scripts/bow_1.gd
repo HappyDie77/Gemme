@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bullet = preload("res://bullet.tscn")
+@onready var bullet = preload("res://Scenes/bullet.tscn")
 @onready var bow = $bow
 var shooting = false
 
