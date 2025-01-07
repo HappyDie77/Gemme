@@ -2,7 +2,7 @@ extends Node2D
 
 var shooting = false
 @onready var sword: Node2D = $sword1
-
+var Anipa = false
 
 
 # Direction mapping for input actions
@@ -37,15 +37,36 @@ func handle_shooting(action: String, direction: Vector2, rotation_deg: float) ->
 	
 	rotation = deg_to_rad(rotation_deg)
 	
+	if Input.is_action_pressed("down"):
+		position.x=-2
+		position.y=-10
 	
+	if Input.is_action_pressed("up"):
+		position.x=0
+		position.y=-130
+		
+	if Input.is_action_pressed("<-"):
+		position.x=4
+		position.y=-3
+		
+	if Input.is_action_pressed("->"):
+		position.x=-4
+		position.y=-4
+		
 	if not shooting:
 		shooting = true
-
-		$sword1/AnimationPlayer.play("swing")
+		
+		if Anipa:
+			$sword1/AnimationPlayer.play("swing")
+			Anipa = true
+		else:
+			$sword1/AnimationPlayer.play("Swing reset")
+			Anipa = false
+		
+		$sword1/AnimationPlayer.connect("animation_finished", self, "_on_animation_finished")
 		
 		$sword1/Timer.start()
 		await $sword1/Timer.timeout
-		$sword1/AnimationPlayer.play("RESET")
 		
 		
 		$sword1/Timer.start()
