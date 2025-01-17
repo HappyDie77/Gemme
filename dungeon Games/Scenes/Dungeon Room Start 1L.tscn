@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://7l7uq7faar7m"]
+[gd_scene load_steps=7 format=3 uid="uid://7l7uq7faar7m"]
 
-[ext_resource type="TileSet" uid="uid://coqlijqy3syu7" path="res://Scenes/Dungeon Build TIleset1.tres" id="1_e35ap"]
-[ext_resource type="PackedScene" uid="uid://dbsv47i7p5va6" path="res://Scenes/player.tscn" id="3_b3h2l"]
-[ext_resource type="PackedScene" uid="uid://8k1onauprcj6" path="res://Scenes/Candle 1A.tscn" id="4_uvpx7"]
-[ext_resource type="PackedScene" uid="uid://d1b5jrd54wre5" path="res://Scenes/Candle 2B.tscn" id="5_18b7s"]
-[ext_resource type="PackedScene" uid="uid://b68615tba2vuf" path="res://Scenes/Torch 1A.tscn" id="6_rii3q"]
+[ext_resource type="TileSet" uid="uid://coqlijqy3syu7" path="res://Scenes/Dungeon Build TIleset1.tres" id="1_1hdbh"]
+[ext_resource type="PackedScene" uid="uid://dbsv47i7p5va6" path="res://Scenes/player.tscn" id="2_dv2kf"]
+[ext_resource type="PackedScene" uid="uid://8k1onauprcj6" path="res://Scenes/Candle 1A.tscn" id="3_jgrjp"]
+[ext_resource type="PackedScene" uid="uid://d1b5jrd54wre5" path="res://Scenes/Candle 2A.tscn" id="4_rmvqt"]
+[ext_resource type="PackedScene" uid="uid://b68615tba2vuf" path="res://Scenes/Torch 1A.tscn" id="5_6x04x"]
+[ext_resource type="PackedScene" uid="uid://7pd0u1rhi0nh" path="res://Scenes/Chest 1A.tscn" id="6_mebtm"]
 
 [node name="TileMap2" type="TileMap"]
-tile_set = ExtResource("1_e35ap")
+tile_set = ExtResource("1_1hdbh")
 format = 2
 layer_0/name = "Floor Deco"
 layer_0/tile_data = PackedInt32Array(-1114120, 3080193, 15, -1048584, 3080193, 15, -983048, 3080193, 15, -917512, 3080193, 15, -851976, 3080193, 15, -1179645, 3080193, 15, -1114109, 3080193, 15, -1048573, 3080193, 15, -983037, 3080193, 15, -917501, 3080193, 15, -1179625, 3080193, 15, -1114089, 3080193, 15, -1048553, 3080193, 15, -983017, 3080193, 15, -917481, 3080193, 15, -1179614, 3080193, 15, -1114078, 3080193, 15, -1048542, 3080193, 15, -983006, 3080193, 15, -917470, 3080193, 15, -1179656, 3080193, 15, -1179655, 3080193, 15, -851975, 3080193, 15, -1179654, 3080193, 15, -851974, 3080193, 15, -1179653, 3080193, 15, -851973, 3080193, 15, -1179652, 3080193, 15, -851972, 3080193, 15, -1179651, 3080193, 15, -851971, 3080193, 15, -1179650, 3080193, 15, -851970, 3080193, 15, -1179649, 3080193, 15, -851969, 3080193, 15, -1245184, 3080193, 15, -917504, 3080193, 15, -1245183, 3080193, 15, -917503, 3080193, 15, -1245182, 3080193, 15, -917502, 3080193, 15, -1245181, 3080193, 15, -1245161, 3080193, 15, -1245160, 3080193, 15, -917480, 3080193, 15, -1245159, 3080193, 15, -917479, 3080193, 15, -1245158, 3080193, 15, -917478, 3080193, 15, -1245157, 3080193, 15, -917477, 3080193, 15, -1245156, 3080193, 15, -917476, 3080193, 15, -1245155, 3080193, 15, -917475, 3080193, 15, -1245154, 3080193, 15, -917474, 3080193, 15, -1245153, 3080193, 15, -917473, 3080193, 15, -1245152, 3080193, 15, -917472, 3080193, 15, -1245151, 3080193, 15, -917471, 3080193, 15, -1245150, 3080193, 15)
@@ -22,7 +23,7 @@ layer_4/tile_data = PackedInt32Array(-196602, 1048577, 4, -327679, 0, 6, -262143
 layer_5/name = "Deco2"
 layer_5/tile_data = PackedInt32Array(-1245177, 786432, 9, -1245165, 786432, 9)
 
-[node name="player" parent="." instance=ExtResource("3_b3h2l")]
+[node name="player" parent="." instance=ExtResource("2_dv2kf")]
 position = Vector2(218, -22)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -30,67 +31,70 @@ zoom = Vector2(3, 3)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="AnimatedSprite2D" parent="Node2D" instance=ExtResource("4_uvpx7")]
+[node name="AnimatedSprite2D" parent="Node2D" instance=ExtResource("3_jgrjp")]
 position = Vector2(298, -291)
 scale = Vector2(0.671168, 0.548617)
 autoplay = "new_animation"
 frame_progress = 0.234229
 
-[node name="AnimatedSprite2D3" parent="Node2D" instance=ExtResource("4_uvpx7")]
+[node name="AnimatedSprite2D3" parent="Node2D" instance=ExtResource("3_jgrjp")]
 position = Vector2(138.405, -291)
 scale = Vector2(0.628692, 0.518887)
 autoplay = "new_animation"
 frame_progress = 0.234229
 
-[node name="AnimatedSprite2D2" parent="Node2D" instance=ExtResource("5_18b7s")]
+[node name="AnimatedSprite2D2" parent="Node2D" instance=ExtResource("4_rmvqt")]
 position = Vector2(301, -315)
 scale = Vector2(0.708745, 0.658953)
 autoplay = "default"
 
-[node name="AnimatedSprite2D4" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D4" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(136, -61)
 autoplay = "default"
 
-[node name="AnimatedSprite2D6" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D6" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(312, -61)
 autoplay = "default"
 
-[node name="AnimatedSprite2D5" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D5" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(280, -299)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D7" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D7" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(168, -298)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D8" parent="Node2D" instance=ExtResource("5_18b7s")]
+[node name="AnimatedSprite2D8" parent="Node2D" instance=ExtResource("4_rmvqt")]
 position = Vector2(140.04, -315)
 scale = Vector2(0.582362, 0.662149)
 autoplay = "default"
 frame_progress = 0.685519
 
-[node name="AnimatedSprite2D9" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D9" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(416, -112)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D10" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D10" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(528, -112)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D11" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D11" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(32, -110)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D12" parent="Node2D" instance=ExtResource("6_rii3q")]
+[node name="AnimatedSprite2D12" parent="Node2D" instance=ExtResource("5_6x04x")]
 position = Vector2(-80, -110)
 rotation = -3.14159
 autoplay = "default"
 
-[node name="AnimatedSprite2D13" parent="Node2D" instance=ExtResource("4_uvpx7")]
+[node name="AnimatedSprite2D13" parent="Node2D" instance=ExtResource("3_jgrjp")]
 position = Vector2(524, 29)
 autoplay = "new_animation"
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("6_mebtm")]
+position = Vector2(465, 9)
