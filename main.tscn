@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5a0yllv2jlfd"]
+
+[ext_resource type="PackedScene" uid="uid://dbsv47i7p5va6" path="res://Scenes/player.tscn" id="1_ffgq3"]
+[ext_resource type="PackedScene" uid="uid://irmr0ufltxwc" path="res://Scenes/bow1_pickup.tscn" id="2_k42n8"]
+[ext_resource type="PackedScene" uid="uid://cy37jtf252aor" path="res://Scenes/sword1_pickp.tscn" id="5_csdlv"]
+[ext_resource type="PackedScene" uid="uid://bde8i1lsvkw0a" path="res://enemy_shooty_double.tscn" id="5_makxv"]
+[ext_resource type="PackedScene" uid="uid://cu1jjtuajkg3r" path="res://enemy_shooty.tscn" id="6_dvf8t"]
+[ext_resource type="PackedScene" uid="uid://bm1ypsg65n3nw" path="res://procedeal.tscn" id="6_om0js"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ffgq3")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="bow1 spawner" parent="." instance=ExtResource("2_k42n8")]
+position = Vector2(-139, 26)
+
+[node name="Area2D" parent="." instance=ExtResource("5_csdlv")]
+position = Vector2(-141, -13)
+
+[node name="enemy shooty_double" parent="." instance=ExtResource("5_makxv")]
+position = Vector2(56, 80)
+
+[node name="enemy shooty" parent="." instance=ExtResource("6_dvf8t")]
+position = Vector2(96, 16)
+
+[node name="procedeal" parent="." instance=ExtResource("6_om0js")]
