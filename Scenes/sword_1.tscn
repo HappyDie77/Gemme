@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yodkq"]
 resource_name = "Swing reset"
-length = 0.2
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +31,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.820305, -0.820305]
@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_olnhi")
 
 [node name="swordsprite" type="Sprite2D" parent="sword1"]
 texture_filter = 1
-position = Vector2(0.517961, -17.207)
+
 scale = Vector2(0.9375, 1.375)
 texture = ExtResource("2_0361i")
 
