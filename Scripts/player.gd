@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 var SPEED = 100.0
 
-func _physics_process(delta: float) -> void:
-	
-	velocity = Input.get_vector("a", "d", "w", "s") * SPEED
 	
 	
 	if Input.is_action_pressed("<-"):
@@ -17,3 +14,4 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("default")
 	
 	move_and_slide()  # Move the player
+
